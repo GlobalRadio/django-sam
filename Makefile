@@ -27,7 +27,7 @@ coverage:
 
 .PHONY: publish
 publish:
-	pip install twine wheel
-	python setup.py sdist bdist_wheel
+	pip install twine build
+	python -m build
 	# twine upload dist/*
 	rm -rf build dist .egg django_sam.egg-info
