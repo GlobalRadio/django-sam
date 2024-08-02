@@ -1,0 +1,27 @@
+# OS Files
+.DS_Store
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Unit test / coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.pytest_cache/
+
+# Environments
+.venv
+
+# Ruff
+.ruff_cache
+
+# MyPy
+.mypy_cache/
