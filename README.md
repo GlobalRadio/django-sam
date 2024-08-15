@@ -12,7 +12,7 @@ Install using `pip`:
 
 Add `django_sam` to Django installed apps in settings.
 
-Add `django_sam.middleware` to your `MIDDLEWARE` setting, just after `django.middleware.security.SecurityMiddleware`
+Add `django_sam.middleware.static_admin_middleware` to your `MIDDLEWARE` setting, just after `django.middleware.security.SecurityMiddleware`
 
 Ensure that Django is configured for static assets generation and that the `STATIC_ROOT` and `STATIC_URL` settings are set.
 

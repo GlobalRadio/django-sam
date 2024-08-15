@@ -29,5 +29,5 @@ coverage:
 publish:
 	pip install twine build
 	python -m build
-	# twine upload dist/*
+	twine upload dist/*
 	rm -rf build dist .egg django_sam.egg-info
