@@ -1,9 +1,11 @@
 import logging
+import mimetypes
 import os
 
+import aiofiles
 from asgiref.sync import iscoroutinefunction
 from django.conf import settings
-from django.http import FileResponse
+from django.http import FileResponse, StreamingHttpResponse
 from django.utils.decorators import sync_and_async_middleware
 
 logger = logging.getLogger(__name__)
@@ -38,7 +40,24 @@ def static_admin_middleware(get_response):
 
         async def middleware(request):
             if files.get(request.path):
-                return FileResponse(open(files[request.path], 'rb'))
+                file_path = files[request.path]
+
+                async def file_iterator():
+                    async with aiofiles.open(file_path, 'rb') as f:
+                        while chunk := await f.read(8192):
+                            yield chunk
+
+                content_type, _ = mimetypes.guess_type(file_path)
+                if content_type is None:
+                    content_type = 'application/octet-stream'
+
+                response = StreamingHttpResponse(
+                    file_iterator(), content_type=content_type
+                )
+
+                filename = os.path.basename(file_path)
+                response['Content-Disposition'] = f'inline; filename="{filename}"'
+                return response
 
             response = await get_response(request)
             return response

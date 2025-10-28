@@ -34,17 +34,16 @@ setup(
     include_package_data=True,
     classifiers=[
         'Natural Language :: English',
-        'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3.12',
     ],
-    python_requires='>=3.8',
+    python_requires='>=3.9',
     install_requires=[
+        'aiofiles',
         'django>=3.2.0',
     ],
 )

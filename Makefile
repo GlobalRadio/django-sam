@@ -1,6 +1,6 @@
 .PHONY: init
 init:
-	python3 -m virtualenv .venv
+	python3 -m venv .venv
 	source .venv/bin/activate
 	pip install -r requirements.txt
 
@@ -16,10 +16,6 @@ check:
 ruff:
 	ruff check .
 	ruff format --check .
-
-.PHONY: mypy
-mypy:
-	mypy .
 
 .PHONY: coverage
 coverage:
