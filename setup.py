@@ -43,7 +43,7 @@ setup(
     ],
     python_requires='>=3.9',
     install_requires=[
-        'aiofiles<26',
+        'aiofiles',
         'django>=3.2.0',
     ],
 )
