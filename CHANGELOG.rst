@@ -11,3 +11,8 @@ Releases
 ------------------
 
 * Corrected an error in the README
+
+0.0.3 (2025-10-28)
+------------------
+
+* Improved asynchronous file handling in middleware
